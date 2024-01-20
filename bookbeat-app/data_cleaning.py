@@ -7,7 +7,7 @@ import re
 download('punkt')
 download('stopwords')
 
-from bookbeat.api_google_book import obtener_descripcion_isbn
+from api_google_book import obtener_descripcion_isbn
 
 """Se crea función para limpieza de texto.
 Una función específica para descripción/blurbs de libros.
