@@ -22,6 +22,8 @@ from spotify_functions import login, get_access_token, create_playlist
 # -- Set page config
 apptitle = 'BookBeat'
 
+roota_path = os.path.dirname(os.path.dirname(__file__))
+
 st.set_page_config(page_title=apptitle, page_icon=":book:")
 
 color_fondo = "#EFF5FF"
@@ -41,8 +43,9 @@ st.markdown(
 @st.cache_data
 def carga_dataset():
     # Ruta al archivo CSV
-    ruta_books = "../raw_data/isbn_titulo_autor.csv"
-    ruta_songs = "../raw_data/songs_sentiment.csv"
+    
+    ruta_books = os.path.join(roota_path,'raw_data', 'isbn_titulo_autor.csv')
+    ruta_songs = os.path.join(roota_path,'raw_data', 'songs_sentiment.csv')
 
     # Cargar datos desde el archivo CSV
     data_book = pd.read_csv(ruta_books)
@@ -50,7 +53,7 @@ def carga_dataset():
 
     return data_book, data_songs
 
-st.image("../raw_data/BookBeat_3.png")
+st.image(os.path.join(roota_path,'raw_data', 'BookBeat_3.png'))
 
 AUTH_STATE_FILE = "auth_state.json"
 
