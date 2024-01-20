@@ -3,9 +3,10 @@ import urllib.parse
 from dotenv import load_dotenv
 import os
 from datetime import datetime, timedelta
+import streamlit as st
 
-load_dotenv()
-CLIENT_SECRET = os.getenv("CLIENT_SECRET")
+##load_dotenv()
+CLIENT_SECRET = st.secrets["CLIENT_SECRET"]
 CLIENT_ID = 'be74c9aaf5c448c08b74412b92eb7ca3'
 REDIRECT_URI = "http://localhost:8501"
 
